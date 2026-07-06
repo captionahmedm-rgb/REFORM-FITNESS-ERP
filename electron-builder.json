@@ -1,0 +1,80 @@
+{
+  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  "name": "reform-fitness-desktop",
+  "version": "2.0.0",
+  "description": "REFORM FITNESS Enterprise Management Desktop Application",
+  "main": "electron/main.cjs",
+  "author": "REFORM FITNESS",
+  "license": "MIT",
+  "homepage": "https://reformfitness.com",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "electron:dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && cross-env ELECTRON_IS_DEV=1 electron electron/main.cjs\"",
+    "electron:build": "vite build && electron-builder",
+    "electron:pack": "vite build && electron-builder --dir"
+  },
+  "build": {
+    "appId": "com.reformfitness.desktop",
+    "productName": "REFORM FITNESS",
+    "directories": {
+      "output": "release",
+      "buildResources": "electron/build"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "!electron/build/icon.svg"
+    ],
+    "extraResources": [
+      {
+        "from": "dist",
+        "to": "app/dist"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "electron/build/icon.png",
+      "artifactName": "${productName}-${version}-${arch}-setup.${ext}",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "REFORM FITNESS",
+      "installerIcon": "electron/build/icon.png",
+      "uninstallerIcon": "electron/build/icon.png",
+      "installerHeaderIcon": "electron/build/icon.png",
+      "license": null,
+      "installerSidebar": null,
+      "perMachine": false,
+      "allowElevation": true,
+      "installerLanguages": ["en_US", "ar_EG"],
+      "displayLanguageSelector": true,
+      "installerHeader": null
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-Portable.${ext}"
+    },
+    "publish": {
+      "provider": "generic",
+      "url": "https://reformfitness.com/releases/"
+    },
+    "asar": true,
+    "asarUnpack": [
+      "**/*.node"
+    ],
+    "compression": "maximum"
+  }
+}

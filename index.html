@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ─── Primary SEO ─── -->
+    <title>REFORM FITNESS — Enterprise Management System</title>
+    <meta name="description" content="REFORM FITNESS Professional ERP System — Nutritional Supplements, Fitness Coaching, Online Coaching & Body Transformation Programs. Managed by Captain Ahmed Mohamed, Cairo Egypt." />
+    <meta name="keywords" content="REFORM FITNESS, fitness management, gym ERP, supplements, coaching, Cairo Egypt, Captain Ahmed Mohamed, مكملات غذائية, لياقة بدنية" />
+    <meta name="author" content="REFORM FITNESS — Captain Ahmed Mohamed" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ─── Open Graph (Facebook, WhatsApp, LinkedIn) ─── -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:site_name"   content="REFORM FITNESS" />
+    <meta property="og:title"       content="REFORM FITNESS — Enterprise Management System" />
+    <meta property="og:description" content="Professional fitness center management system — Supplements, Coaching & Body Transformation. Cairo, Egypt." />
+    <meta property="og:image"       content="/icons/icon-512x512.svg" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:locale"      content="en_US" />
+    <meta property="og:locale:alternate" content="ar_EG" />
+
+    <!-- ─── Twitter Card ─── -->
+    <meta name="twitter:card"        content="summary" />
+    <meta name="twitter:title"       content="REFORM FITNESS Enterprise System" />
+    <meta name="twitter:description" content="Professional fitness center ERP — Cairo, Egypt" />
+    <meta name="twitter:image"       content="/icons/icon-512x512.svg" />
+
+    <!-- ─── PWA ─── -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#050A14" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="REFORM FITNESS" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.svg" />
+
+    <!-- ─── Favicon ─── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- ─── Google Fonts ─── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- ─── Business structured data ─── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "REFORM FITNESS",
+      "description": "Nutritional Supplements, Fitness Coaching, Online Coaching & Body Transformation Programs",
+      "founder": "Captain Ahmed Mohamed",
+      "telephone": ["+201550098212", "+201551510427"],
+      "email": ["captionahmedm@gmail.com", "captainahmedstoreynutritionals@gmail.com"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cairo",
+        "addressCountry": "EG"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- PWA service worker registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
